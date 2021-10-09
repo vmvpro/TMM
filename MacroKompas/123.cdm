@@ -1,0 +1,26 @@
+# -*- coding: cp1251 -*-
+#|123
+
+import Kompas10API5 as KAPI
+import Kompas10API7 as KAPI7
+import pythoncom
+from win32com.client import Dispatch
+import LDefin2D
+import LDefin3D
+import ksConstants as CONST2D7
+import ksConstants3D as CONST3D7
+import MiscellaneousHelpers as MH
+
+iKompasObject = Dispatch('KOMPAS.Application.5')
+iKompasObject = KAPI.KompasObject(iKompasObject)
+MH.iKompasObject = iKompasObject
+
+iApplication = Dispatch('KOMPAS.Application.7')
+iApplication = KAPI7.IApplication(iApplication)
+MH.iApplication = iApplication
+
+iDocument2D = iKompasObject.ActiveDocument2D()
+iDocument = iApplication.ActiveDocument
+iKompasDocument2D = KAPI7.IKompasDocument2D(iDocument)
+
+obj = iDocument2D.ksLineSeg(301.23996095932, 196.85747967184, 403.43626011496, 224.99848958426, 1)

@@ -1,0 +1,58 @@
+# -*- coding: cp1251 -*-
+#|vector2
+
+import Kompas10API5 as KAPI
+import Kompas10API7 as KAPI7
+import pythoncom
+from win32com.client import Dispatch
+import LDefin2D
+import LDefin3D
+import ksConstants as CONST2D7
+import ksConstants3D as CONST3D7
+import MiscellaneousHelpers as MH
+
+iKompasObject = Dispatch('KOMPAS.Application.5')
+iKompasObject = KAPI.KompasObject(iKompasObject)
+MH.iKompasObject = iKompasObject
+
+iApplication = Dispatch('KOMPAS.Application.7')
+iApplication = KAPI7.IApplication(iApplication)
+MH.iApplication = iApplication
+
+iDocument2D = iKompasObject.ActiveDocument2D()
+iDocument = iApplication.ActiveDocument
+iKompasDocument2D = KAPI7.IKompasDocument2D(iDocument)
+
+
+iLeaderParam = KAPI.ksLeaderParam(iKompasObject.GetParamStruct(LDefin2D.ko_LeaderParam))
+iLeaderParam.Init()
+iLeaderParam.around = 0
+iLeaderParam.arrowType = 2
+iLeaderParam.cText0 = 0
+iLeaderParam.cText1 = 0
+iLeaderParam.cText2 = 0
+iLeaderParam.cText3 = 0
+iLeaderParam.dirX = 1
+iLeaderParam.signType = 0
+iLeaderParam.x = 244.13979408064
+iLeaderParam.y = 254.55064090044
+iPolylineArray = KAPI.ksDynamicArray(iLeaderParam.GetpPolyline())
+
+
+iMathPointArray = KAPI.ksDynamicArray(iKompasObject.GetDynamicArray(2))
+
+iMathPointParam = KAPI.ksMathPointParam(iKompasObject.GetParamStruct(LDefin2D.ko_MathPointParam))
+iMathPointParam.Init()
+iMathPointParam.x = 197.17884766665
+iMathPointParam.y = 184.10922127946
+iMathPointArray.ksAddArrayItem(-1, iMathPointParam)
+
+iPolylineArray.ksAddArrayItem(-1, iMathPointArray)
+
+iLeaderParam.SetpPolyline(iPolylineArray)
+
+iTextLineArray = KAPI.ksDynamicArray(iLeaderParam.GetpTextline())
+
+iLeaderParam.SetpTextline(iTextLineArray)
+
+obj = iDocument2D.ksLeader(iLeaderParam)

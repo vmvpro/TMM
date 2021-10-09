@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51E5391F-4411-4434-B14C-CD38E30BF0F6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>TMM.My.MyApplication</StartupObject>
+    <RootNamespace>TMM</RootNamespace>
+    <AssemblyName>TMM</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <NuGetPackageImportStamp>8e632c98</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>TMM.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42032,42036</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>TMM.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42032,42036</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DbLinq, Version=0.20.0.0, Culture=neutral, PublicKeyToken=61e015a67077348b" />
+    <Reference Include="Devart.Data, Version=5.0.1723.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
+    <Reference Include="Devart.Data.SQLite, Version=5.9.931.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.Kompas6API5">
+      <HintPath>..\..\..\MS Visual Studio\KompasProjectTest\obj\Debug\Interop.Kompas6API5.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Kompas6Constants">
+      <HintPath>..\..\..\MS Visual Studio\KompasProjectTest\obj\Debug\Interop.Kompas6Constants.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SQLite, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Core.1.0.106.0\lib\net40\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.EF6.1.0.106.0\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Linq.1.0.106.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Kompas6Constants" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cam\cls_Cam_0000.vb" />
+    <Compile Include="Cam\cls_Cam_0000_Work.vb" />
+    <Compile Include="Cam\cls_Cam_K.vb" />
+    <Compile Include="Cam\cls_Cam_K_Work.vb" />
+    <Compile Include="cls_InputData.vb" />
+    <Compile Include="Cam\cls_InputDataCam.vb" />
+    <Compile Include="DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frm_DataBaseTest.Designer.vb">
+      <DependentUpon>frm_DataBaseTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_DataBaseTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Test7.Designer.vb">
+      <DependentUpon>frm_Test7.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Test7.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdl_CreateDataContext.vb" />
+    <Compile Include="Povsun_5\cls_Povsun_5.vb" />
+    <Compile Include="Povsun_5\cls_Povsun_5_Work.vb" />
+    <Compile Include="Povsun_5\frm_Povzun_5.Designer.vb">
+      <DependentUpon>frm_Povzun_5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Povsun_5\frm_Povzun_5.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shatun_1\frm_Shatun_1.Designer.vb">
+      <DependentUpon>frm_Shatun_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shatun_1\frm_Shatun_1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Povsun_3\frm_Povzun_3.Designer.vb">
+      <DependentUpon>frm_Povzun_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Povsun_3\frm_Povzun_3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Shatun_9.Designer.vb">
+      <DependentUpon>frm_Shatun_9.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Shatun_9.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Test4.Designer.vb">
+      <DependentUpon>frm_Test4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Test4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Test5.Designer.vb">
+      <DependentUpon>frm_Test5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Test5.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdl_InputData_New.vb" />
+    <Compile Include="myDoc2D\myDoc2D_Constats.vb" />
+    <Compile Include="myDoc2D\myDoc2D_Functions.vb" />
+    <Compile Include="myDoc2D\cls_Segment.vb" />
+    <Compile Include="myDoc2D\myDoc2D.vb" />
+    <Compile Include="myDoc2D\cls_SheetView.vb" />
+    <Compile Include="myDoc2D\cls_PointDouble.vb" />
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Main.Designer.vb">
+      <DependentUpon>frm_Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Test3.Designer.vb">
+      <DependentUpon>frm_Test3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Test3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Test2.Designer.vb">
+      <DependentUpon>frm_Test2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Test2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lDefin2d.vb" />
+    <Compile Include="mdl_ExtensionsKompas.vb" />
+    <Compile Include="mdl_Function.vb" />
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="myDoc2D\myDoc2D_Work_SheetView.vb" />
+    <Compile Include="cls_Test_SheetView.vb" />
+    <Compile Include="Povsun_6\cls_Povsun_6.vb" />
+    <Compile Include="Povsun_6\cls_Povsun_6_Work.vb" />
+    <Compile Include="Shatun_1\cls_Shatun_1.vb" />
+    <Compile Include="Shatun_1\cls_Shatun_1_Work.vb" />
+    <Compile Include="Shatun_9\cls_Shatun_9.vb" />
+    <Compile Include="Shatun_9\cls_Shatun_9_Work.vb" />
+    <Compile Include="Test\clsTest_Test1.vb" />
+    <Compile Include="Test\clsTest_Work.vb" />
+    <Compile Include="Test\clsTest.vb" />
+    <Compile Include="Povsun_3\cls_Povsun_3_Work.vb" />
+    <Compile Include="Povsun_3\cls_Povsun_3.vb" />
+    <Compile Include="step3 %28Класс - VB .NET%29.vb" />
+    <Compile Include="Povsun_2\cls_Povsun_2.vb" />
+    <Compile Include="Povsun_2\cls_Povsun_2_Work.vb" />
+    <Compile Include="Povsun_2\frm_Povzun_2.Designer.vb">
+      <DependentUpon>frm_Povzun_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Povsun_2\frm_Povzun_2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_DataBaseTest.resx">
+      <DependentUpon>frm_DataBaseTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Main.resx">
+      <DependentUpon>frm_Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Test7.resx">
+      <DependentUpon>frm_Test7.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Povsun_3\frm_Povzun_3.resx">
+      <DependentUpon>frm_Povzun_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Shatun_9.resx">
+      <DependentUpon>frm_Shatun_9.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Test3.resx">
+      <DependentUpon>frm_Test3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Test2.resx">
+      <DependentUpon>frm_Test2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Test4.resx">
+      <DependentUpon>frm_Test4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Test5.resx">
+      <DependentUpon>frm_Test5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Povsun_5\frm_Povzun_5.resx">
+      <DependentUpon>frm_Povzun_5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shatun_1\frm_Shatun_1.resx">
+      <DependentUpon>frm_Shatun_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Povsun_2\frm_Povzun_2.resx">
+      <DependentUpon>frm_Povzun_2.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Cam_0000.cdw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DiagramCam.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="ШаблонЧертежа.cdt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ШаблонЧертежа.cdw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Shatun_4\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Db\DB.csproj">
+      <Project>{6251b6ab-41ed-43dd-9e75-030e04060d1f}</Project>
+      <Name>DB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="packages\System.Data.SQLite.Core.1.0.106.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('packages\System.Data.SQLite.Core.1.0.106.0\build\net40\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Включите восстановление пакетов NuGet, чтобы скачать их. Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\System.Data.SQLite.Core.1.0.106.0\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\System.Data.SQLite.Core.1.0.106.0\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
