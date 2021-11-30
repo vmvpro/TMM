@@ -192,7 +192,19 @@ Public Class frm_Povzun_3
         loadStudents()
         ComboBox1.SelectedValue = value
 
+        Dim db As New DataBase
+
+        DataBase.Connection().Open()
+
+
+        povzun_3 = New cls_Povsun_3(drZD_Student)
+        povzun_3.RunKompas()
+        povzun_3.CreateAll(counter)
+
+        DataBase.Connection().Close()
+
     End Sub
+
 
     Dim lstn As Integer
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
@@ -268,10 +280,12 @@ Public Class frm_Povzun_3
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        povzun_3 = New cls_Povsun_3(drZD_Student)
-        povzun_3.Run()
+        Button1_Click(sender, e)
 
-        
+        povzun_3 = New cls_Povsun_3(drZD_Student)
+        povzun_3.Run(drZD_Student(5))
+
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click

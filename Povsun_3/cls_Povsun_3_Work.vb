@@ -83,6 +83,33 @@ Partial Public Class cls_Povsun_3
         DataBase.UpdateDataBase()
     End Sub
 
+    Sub CreateAll(lstn As Integer)
+
+        counter = lstn
+
+        Dim i1 = 1
+        Dim i3 = 3
+        Dim i7 = 6
+
+        Dim db As New DataBase
+
+        DataBase.Connection().Open()
+
+        For i As Integer = 0 To 7
+
+            Dim tran As SQLiteTransaction = DataBase.Connection().BeginTransaction()
+
+            MechanismConstruction(tran, i)
+            Mechanism_Speed(tran, i)
+            Mechanism_Acceleration(tran, i)
+
+            tran.Commit()
+        Next
+
+        DataBase.Connection().Close()
+        DataBase.UpdateDataBase()
+    End Sub
+
     Public Sub DrawOne(numberPosition As Integer)
 
 
@@ -102,49 +129,92 @@ Partial Public Class cls_Povsun_3
         doc2D = New myDoc2D(ActiveDoc2D, "ШаблонЧертежа")
     End Sub
 
+    Public Sub Run(lstn As Integer)
+
+        counter = lstn
+
+        doc2D = New myDoc2D(ActiveDoc2D, "ШаблонЧертежа")
+        'doc2D = New myDoc2D(ActiveDoc2D, "ШаблонМаховик")
+        If doc2D Is Nothing Then Throw New Exception("Приложение компас не запущено")
+
+        Dim k = drDadatok2("position_m")
+
+        ' Орисовка
+
+        For i As Integer = 0 To 7
+
+            Dim dr_Mehanizm = StoredProcedure.RowZD(Table.Z3_Mehanizm, counter, i)
+            Dim dr_Speed = StoredProcedure.RowZD(Table.Z3_Speed, counter, i)
+            Dim dr_Acceleration = StoredProcedure.RowZD(Table.Z3_Acceleration, counter, k)
+
+            If i = k Then
+                'толстая линия 
+                MechanismDraw(dr_Mehanizm, 1)
+                Mechanism_AccelerationDraw(dr_Acceleration)
+            Else
+                MechanismDraw(dr_Mehanizm, 2)
+            End If
+
+            Mechanism_SpeedDraw(dr_Speed)
+        Next
+
+        kompas = kompasApp()
+        kompas.ksMessage("Построение закончено")
+
+        'ActiveDoc2D.m()
+
+        'shatun.Mechanism_Speed()
+
+    End Sub
+
     Public Sub Run()
         doc2D = New myDoc2D(ActiveDoc2D, "ШаблонЧертежа")
         'doc2D = New myDoc2D(ActiveDoc2D, "ШаблонМаховик")
         If doc2D Is Nothing Then Throw New Exception("Приложение компас не запущено")
 
         Dim k = drDadatok2("position_m")
-        test(1, 3)
+        'test(49, 3)
         'CreateOne()
-        Return
+        'Return
         'Dim db As New DataBase
 
-        DataBase.Connection().Open()
-
-        For i As Integer = 0 To 7
-
-            Dim tran As SQLiteTransaction = DataBase.Connection().BeginTransaction()
-
-            MechanismConstruction(tran, i)
-            Mechanism_Speed(tran, i)
-            Mechanism_Acceleration(tran, i)
-
-            tran.Commit()
-        Next
-
-        DataBase.Connection().Close()
-        DataBase.UpdateDataBase()
+        'DataBase.Connection().Open()
 
         'For i As Integer = 0 To 7
 
+        '    Dim tran As SQLiteTransaction = DataBase.Connection().BeginTransaction()
 
-        '    If i = k Then
-        '        'толстая линия 
-        '        MechanismDraw(i, 1)
-        '        Mechanism_AccelerationDraw(i)
-        '    Else
-        '        MechanismDraw(i, 2)
-        '    End If
+        '    MechanismConstruction(tran, i)
+        '    Mechanism_Speed(tran, i)
+        '    Mechanism_Acceleration(tran, i)
 
-        '    Mechanism_SpeedDraw(i)
-
+        '    tran.Commit()
         'Next
-        'kompas = kompasApp()
-        'kompas.ksMessage("Построение закончено")
+
+        'DataBase.Connection().Close()
+        'DataBase.UpdateDataBase()
+
+        ' Отрисовка
+
+        For i As Integer = 0 To 7
+
+            Dim dr_Mehanizm = StoredProcedure.RowZD(Table.Z3_Mehanizm, counter, i)
+            Dim dr_Speed = StoredProcedure.RowZD(Table.Z3_Speed, counter, i)
+            Dim dr_Acceleration = StoredProcedure.RowZD(Table.Z3_Acceleration, counter, k)
+
+            If i = k Then
+                'толстая линия 
+                MechanismDraw(dr_Mehanizm, 1)
+                Mechanism_AccelerationDraw(dr_Acceleration)
+            Else
+                MechanismDraw(dr_Mehanizm, 2)
+            End If
+
+            Mechanism_SpeedDraw(dr_Speed)
+        Next
+
+        kompas = kompasApp()
+        kompas.ksMessage("Построение закончено")
 
         'ActiveDoc2D.m()
 
@@ -672,7 +742,7 @@ Partial Public Class cls_Povsun_3
 
         Dim dr_Acceleration As DataRow = dt_Acceleration.NewRow()
 
-        dr_Acceleration("id_z3") = counter
+        dr_Acceleration("id_zd") = counter
 
         dr_Acceleration("numberPosition") = numberPosition
 

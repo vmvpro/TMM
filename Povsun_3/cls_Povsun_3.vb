@@ -30,7 +30,6 @@ Public Class cls_Povsun_3
     ' Входные данные
     ' Положение начальной точки, где строится наш механизм на чертеже 
     ' задается в произвольном выборе
-
     Sub Initialization(drZD_Student_ As DataRow)
 
         drZD_Student = drZD_Student_
