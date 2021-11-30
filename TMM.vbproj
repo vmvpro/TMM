@@ -236,7 +236,7 @@
     <Compile Include="Shatun_1\cls_Shatun_1_Work.vb" />
     <Compile Include="Shatun_9\cls_Shatun_9.vb" />
     <Compile Include="Shatun_9\cls_Shatun_9_Work.vb" />
-    <Compile Include="Test\clsTest_Test1.vb" />
+    <Compile Include="Test\clsTest_Test.vb" />
     <Compile Include="Test\clsTest_Work.vb" />
     <Compile Include="Test\clsTest.vb" />
     <Compile Include="Povsun_3\cls_Povsun_3_Work.vb" />
