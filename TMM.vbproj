@@ -68,6 +68,10 @@
       <HintPath>..\..\..\MS Visual Studio\KompasProjectTest\obj\Debug\Interop.Kompas6Constants.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="KompasAPI7">
+      <HintPath>..\..\..\MS Visual Studio\KompasProjectTest\obj\Debug\KompasAPI7.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
